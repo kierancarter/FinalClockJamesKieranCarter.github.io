@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CalenderJamesKieranCarter</title>
+	<style>
+	#parent{
+		background-color: #9B6F8E;
+		width:960px;
+		height:490px;
+		border-radius: 50px;
+		background-repeat: no-repeat;
+		background-size: 1390px 1100px;
+	padding: 200px;
+	}	
+
+			#theTime{
+	position:relative;
+		width: 400px;
+		height:150px;
+		left: 291px;
+		top:-100px;
+		background-color:transparent;
+		border: 3px solid #4F6260;
+		border-radius: 50px;
+		}
+	#Hour{
+	position: relative;
+		left: 20px;
+		top: 22px;
+	}
+	#Minute{
+	position: relative;
+		left:145px;
+		top: -85px;
+		}
+	#Second{
+	position: relative;
+		left:270px;
+		top: -190px;
+	}
+
+		
+		#Year{
+		color: darkgrey;
+		font-size: 60px;
+		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+		position: relative;
+		left:15px;
+		top: -200px;
+		}
+		#Month{
+			font-size: 50px;
+			color: darkgrey;
+		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+		position: relative;
+		left:450px;
+			top: 230px;}
+	#dayName{
+		font-size: 75px;
+		color: darkgrey;
+		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+		position: relative;
+		left:291px;
+		top: 250px;
+	}
+	
+	#dayNum{
+		font-size: 60px;
+		color: darkgrey;
+		font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+		position: relative;
+		left:890px;
+		top: 200px;
+		top: 175px;
+
+	}
+			.time{
+			font-size: 50px;
+		background-color: black;
+		display: flex;
+  		 justify-content: center;
+  		align-items: center;
+		font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+		border-radius: 50px;
+		width:100px;
+		height:100px;
+		color:#FFFFFF;
+		border: 3px solid #4F6260;
+	}
+
+</style>
+</head>
+
+<body>
+	<div id="parent">
+		<div id="theTime">
+			<div class="time" id="Hour"></div>
+			<div class="time" id="Minute"></div>
+			<div class="time" id="Second"></div>
+		</div>
+			<div id="Year"></div>
+			<div id="dayName"></div>
+			<div id="Month"></div>
+			<div id="dayNum"></div>
+	
+	</div> 
+<script>
+var myVar = setInterval(myTimer, 1000);
+
+	function twelveHour(i){
+		    if (i > 12){i=i - 12}
+	return i;
+	}
+	function myTimer() {
+var d = new Date();
+	function plusZero(i) {
+  if (i < 10) {i = "0" + i}
+  return i;
+	}
+var h = twelveHour(d.getHours());
+	document.getElementById("Hour").innerHTML = h;
+var m = plusZero(d.getMinutes());
+	document.getElementById("Minute").innerHTML = m;
+var s = plusZero(d.getSeconds());
+	document.getElementById("Second").innerHTML = s;
+	
+	
+const dayName = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+let day = dayName[d.getDay()];
+	document.getElementById("dayName").innerHTML = day;
+
+const monthName = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let month = monthName[d.getMonth()];
+	document.getElementById("Month").innerHTML = month;
+	
+var year = d.getFullYear();
+	document.getElementById("Year").innerHTML = year;
+	
+var dayNum = d.getDate();
+	document.getElementById("dayNum").innerHTML = dayNum;
+/*backgrounds according to which month it is "if else statements" for the parent div only*/
+
+if(month=="January"){
+	document.getElementById('parent').style.backgroundImage="url('images/vecteezy_january-month-winter-greeting-text-isometric-2-5d-illustration_.jpg')";
+}
+	else if (month=="March"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_march-month-spring-greeting-text-isometric-2-5d-seasonal-illustration_.jpg')";
+	}
+	else if (month=="April"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_april-month-spring-greeting-text-isometric-2-5d-seasonal-illustration_.jpg')";
+	}
+	else if (month=="May"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_may-month-spring-greeting-text-isometric-2-5d-seasonal-illustration_.jpg')";
+	}
+	else if (month=="June"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_june-month-summer-greeting-text-isometric-2-5d-seasonal-illustration_.jpg')";
+	}
+	else if (month=="July"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_july-month-summer-greeting-text-isometric-2-5d-seasonal-illustration_.jpg')";
+	}
+	else if (month=="August"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_august-month-summer-greeting-text-isometric-2-5d-illustration_.jpg')";
+	}
+	else if (month=="September"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_september-month-autumn-greeting-text-isometric-2-5d-illustration_.jpg')";
+	}
+	else if (month=="October"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_october-month-autumn-greeting-text-isometric-2-5d-illustration_.jpg')";
+	}
+	else if (month=="November"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_november-month-autumn-greeting-text-isometric-2-5d-illustration_.jpg')";
+	}
+	else if (month=="December"){
+		document.getElementById('parent').style.backgroundImage="url('images/vecteezy_december-month-winter-greeting-text-isometric-2-5d-illustration_.jpg')";
+	}
+	else {document.getElementById('parent').style.backgroundImage="url('images/vecteezy_february-month-winter-greeting-text-isometric-2-5d-illustration_.jpg')";}
+}
+</script>	
+</body>
+</html>
